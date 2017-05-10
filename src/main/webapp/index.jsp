@@ -12,5 +12,5 @@
   </div>
 <body>
 </body>
-<h2>Hello Rocker, you are the best</h2>
+<h2>Hello Rocker</h2>
 </html>
