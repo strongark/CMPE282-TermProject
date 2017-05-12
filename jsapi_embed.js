@@ -7,7 +7,7 @@ window.onload= function() {
      var vizURL ="https://us-east-1.online.tableau.com/t/projectx/views/RockerGroup_0/Dashboard1?:embed=y&:showShareOptions=true&:display_count=no&:showVizHome=no";
 	 
      var options ={
-      width: '700px',
+      width: '1200px',
       height: '700px',
       hideToolbar: true,
       hideTabs: true
