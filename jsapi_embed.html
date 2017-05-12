@@ -1,45 +1,319 @@
-
 <!DOCTYPE html>
+<!-- saved from url=(0082)file:///C:/Users/furkanemrehan/Documents/GitHub/CMPE282-TermProject/dashboard.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<html>
-<head>
-	<title>Tableau JavaScript In Action Video</title>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CMPE 282 Project</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome.min.css" rel="stylesheet" type="text/css">
+
 	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-	<link href="bootstrap.css" rel="stylesheet" media="screen">
-	<script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.js"></script>
+	
+	<script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
 	<script type="text/javascript" src="jsapi_embed.js"></script>
-    <!-- Access the API & Load your JavaScript -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
 </head>
+
 <body>
-	<div class='container'>
-		<div class='row'>
-				<!-- <div class='span3'><img src='logo.png' ></div> -->
-			<h2 class='span7 pagination-centered'>Cloud HRM</h2>
-		</div>
-		<div class='row'>
 
-			<ul id = 'menu' class='nav nav-list span2'>
+    <div id="wrapper">
 
-                 <!--These buttons will interact with our viz.-->
-                 <!-- But the functions, switchView, show, and selectMarks-->
-                 <!-- are custom functions that don't do anything until we write the functions in jsapi_in_action.js-->
-				<li class='nav-header'>Switching Views</li>
-				<li><a onClick="switchView('Gender Chart')">Dashboard</a></li>
-				<li><a onClick="switchView('Sales by Product')">Sales by Product</a></li>
-				<li><a onClick="switchView('Sales by  Month')">Sales by Month</a></li>
-				<li><a onClick="switchView('Sales by Region')">Sales by Region</a></li>
-				<li><a onClick="switchView('Sales by SalesReps')">Sales by SalesReps</a></li>
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="file:///C:/Users/furkanemrehan/Documents/GitHub/CMPE282-TermProject/index.html">CMPE 282 Project</a>
+            </div>
+            <!-- /.navbar-header -->
 
-				<!-- <li class='nav-header'>Filtering & Selecting Marks</li>
-				<li><a onClick="show('Productname','Product_2')">Show Product_2</a></li>
-				<li><a onClick="show('Firstname','Harry')">Show Harry</a></li>
-				<li><a onClick="selectMarks('Productname','Product_2')">Select Product_2 Marks</a></li> -->
-			</ul>
 
-            <!-- Create an empty div to put the viz -->
-            <div id='myViz'></div>
-		</div>
-	</div>
-</body>
-</html>
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+								
+						<li><a onClick="switchView('Gender Chart')">Gender Chart</a></li>
+						<li><a onClick="switchView('Salary for departments')">Salary for departments</a></li>
+						<li><a onClick="switchView('Salary for titles')">Salary for titles</a></li>
+						<li><a onClick="switchView('Head count for departments')">Head count for departments</a></li>
+						<li><a onClick="switchView('Head count for departments/time')">Head count for departments/time</a></li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper" style="min-height: 680px;">
+		
+            <div class="row">
+                <div class="col-lg-12">
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    
+					<!-- Create an empty div to put the viz -->
+					<div id='myViz'></div>
+					
+					<div>
+						
+					</div>
+					
+					
+                </div>
+				
+                        
+                        <!-- /.panel-body -->
+                <!-- /.col-lg-8 -->
+                <div class="col-lg-4" style="display:none">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bell fa-fw"></i> Notifications Panel
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <a href="file:///C:/Users/furkanemrehan/Documents/GitHub/CMPE282-TermProject/dashboard.html#" class="list-group-item">
+                                    <i class="fa fa-comment fa-fw"></i> New Comment
+                                    <span class="pull-right text-muted small"><em>4 minutes ago</em>
+                                    </span>
+                                </a>
+                                <a href="file:///C:/Users/furkanemrehan/Documents/GitHub/CMPE282-TermProject/dashboard.html#" class="list-group-item">
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small"><em>12 minutes ago</em>
+                                    </span>
+                                </a>
+                                <a href="file:///C:/Users/furkanemrehan/Documents/GitHub/CMPE282-TermProject/dashboard.html#" class="list-group-item">
+                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                    <span class="pull-right text-muted small"><em>27 minutes ago</em>
+                                    </span>
+                                </a>
+                                <a href="file:///C:/Users/furkanemrehan/Documents/GitHub/CMPE282-TermProject/dashboard.html#" class="list-group-item">
+                                    <i class="fa fa-tasks fa-fw"></i> New Task
+                                    <span class="pull-right text-muted small"><em>43 minutes ago</em>
+                                    </span>
+                                </a>
+                                <a href="file:///C:/Users/furkanemrehan/Documents/GitHub/CMPE282-TermProject/dashboard.html#" class="list-group-item">
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small"><em>11:32 AM</em>
+                                    </span>
+                                </a>
+                                <a href="file:///C:/Users/furkanemrehan/Documents/GitHub/CMPE282-TermProject/dashboard.html#" class="list-group-item">
+                                    <i class="fa fa-bolt fa-fw"></i> Server Crashed!
+                                    <span class="pull-right text-muted small"><em>11:13 AM</em>
+                                    </span>
+                                </a>
+                                <a href="file:///C:/Users/furkanemrehan/Documents/GitHub/CMPE282-TermProject/dashboard.html#" class="list-group-item">
+                                    <i class="fa fa-warning fa-fw"></i> Server Not Responding
+                                    <span class="pull-right text-muted small"><em>10:57 AM</em>
+                                    </span>
+                                </a>
+                                <a href="file:///C:/Users/furkanemrehan/Documents/GitHub/CMPE282-TermProject/dashboard.html#" class="list-group-item">
+                                    <i class="fa fa-shopping-cart fa-fw"></i> New Order Placed
+                                    <span class="pull-right text-muted small"><em>9:49 AM</em>
+                                    </span>
+                                </a>
+                                <a href="file:///C:/Users/furkanemrehan/Documents/GitHub/CMPE282-TermProject/dashboard.html#" class="list-group-item">
+                                    <i class="fa fa-money fa-fw"></i> Payment Received
+                                    <span class="pull-right text-muted small"><em>Yesterday</em>
+                                    </span>
+                                </a>
+                            </div>
+                            <!-- /.list-group -->
+                            <a href="file:///C:/Users/furkanemrehan/Documents/GitHub/CMPE282-TermProject/dashboard.html#" class="btn btn-default btn-block">View All Alerts</a>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Donut Chart Example
+                        </div>
+                        <div class="panel-body">
+                            <div id="morris-donut-chart"><svg height="342" version="1.1" width="512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.2.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#0b62a4" d="M0,-6.666666666666667A-6.666666666666667,-6.666666666666667,0,0,0,-5.228486604698025,-4.1361059305750105" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path><path fill="#0b62a4" stroke="#ffffff" d="M0,-3.666666666666667A-3.666666666666667,-3.666666666666667,0,0,0,-2.8756676325839137,-2.274858261816256L-11.764094860570555,-9.306238343793773A-15,-15,0,0,1,0,-15Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#3980b5" d="M-5.228486604698025,-4.1361059305750105A-6.666666666666667,-6.666666666666667,0,1,0,6.054042404487644,2.79159721469805" stroke-width="2" opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1;"></path><path fill="#3980b5" stroke="#ffffff" d="M-2.8756676325839137,-2.274858261816256A-3.666666666666667,-3.666666666666667,0,1,0,3.3297233224682046,1.5353784680839275L9.081063606731467,4.187395822047074A-10,-10,0,1,1,-7.842729907047037,-6.2041588958625145Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#679dc6" d="M6.054042404487644,2.79159721469805A-6.666666666666667,-6.666666666666667,0,0,0,0.0020943950679349903,-6.666666337679857" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path><path fill="#679dc6" stroke="#ffffff" d="M3.3297233224682046,1.5353784680839275A-3.666666666666667,-3.666666666666667,0,0,0,0.0011519172873642447,-3.6666664857239213L0.004712388902853728,-14.999999259779676A-15,-15,0,0,1,13.6215954100972,6.2810937330706125Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="0" y="-10" text-anchor="middle" font-family="&quot;Arial&quot;" font-size="15px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: Arial; font-size: 15px; font-weight: 800;" font-weight="800" transform="matrix(NaN,NaN,NaN,NaN,0,0)" stroke-width="1"><tspan dy="-10" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">In-Store Sales</tspan></text><text x="0" y="10" text-anchor="middle" font-family="&quot;Arial&quot;" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: Arial; font-size: 14px;" transform="matrix(NaN,NaN,NaN,NaN,0,0)" stroke-width="1"><tspan dy="10" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">30</tspan></text></svg></div>
+                            <a href="file:///C:/Users/furkanemrehan/Documents/GitHub/CMPE282-TermProject/dashboard.html#" class="btn btn-default btn-block">View Details</a>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                    <div class="chat-panel panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-comments fa-fw"></i> Chat
+                            <div class="btn-group pull-right">
+                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-chevron-down"></i>
+                                </button>
+                                <ul class="dropdown-menu slidedown">
+                                    <li>
+                                        <a href="file:///C:/Users/furkanemrehan/Documents/GitHub/CMPE282-TermProject/dashboard.html#">
+                                            <i class="fa fa-refresh fa-fw"></i> Refresh
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="file:///C:/Users/furkanemrehan/Documents/GitHub/CMPE282-TermProject/dashboard.html#">
+                                            <i class="fa fa-check-circle fa-fw"></i> Available
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="file:///C:/Users/furkanemrehan/Documents/GitHub/CMPE282-TermProject/dashboard.html#">
+                                            <i class="fa fa-times fa-fw"></i> Busy
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="file:///C:/Users/furkanemrehan/Documents/GitHub/CMPE282-TermProject/dashboard.html#">
+                                            <i class="fa fa-clock-o fa-fw"></i> Away
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="file:///C:/Users/furkanemrehan/Documents/GitHub/CMPE282-TermProject/dashboard.html#">
+                                            <i class="fa fa-sign-out fa-fw"></i> Sign Out
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <ul class="chat">
+                                <li class="left clearfix">
+                                    <span class="chat-img pull-left">
+                                        <img src="fff" alt="User Avatar" class="img-circle">
+                                    </span>
+                                    <div class="chat-body clearfix">
+                                        <div class="header">
+                                            <strong class="primary-font">Jack Sparrow</strong>
+                                            <small class="pull-right text-muted">
+                                                <i class="fa fa-clock-o fa-fw"></i> 12 mins ago
+                                            </small>
+                                        </div>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="right clearfix">
+                                    <span class="chat-img pull-right">
+                                        <img src="fff(1)" alt="User Avatar" class="img-circle">
+                                    </span>
+                                    <div class="chat-body clearfix">
+                                        <div class="header">
+                                            <small class=" text-muted">
+                                                <i class="fa fa-clock-o fa-fw"></i> 13 mins ago</small>
+                                            <strong class="pull-right primary-font">Bhaumik Patel</strong>
+                                        </div>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="left clearfix">
+                                    <span class="chat-img pull-left">
+                                        <img src="fff" alt="User Avatar" class="img-circle">
+                                    </span>
+                                    <div class="chat-body clearfix">
+                                        <div class="header">
+                                            <strong class="primary-font">Jack Sparrow</strong>
+                                            <small class="pull-right text-muted">
+                                                <i class="fa fa-clock-o fa-fw"></i> 14 mins ago</small>
+                                        </div>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="right clearfix">
+                                    <span class="chat-img pull-right">
+                                        <img src="fff(1)" alt="User Avatar" class="img-circle">
+                                    </span>
+                                    <div class="chat-body clearfix">
+                                        <div class="header">
+                                            <small class=" text-muted">
+                                                <i class="fa fa-clock-o fa-fw"></i> 15 mins ago</small>
+                                            <strong class="pull-right primary-font">Bhaumik Patel</strong>
+                                        </div>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.panel-body -->
+                        <div class="panel-footer">
+                            <div class="input-group">
+                                <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-warning btn-sm" id="btn-chat">
+                                        Send
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- /.panel-footer -->
+                    </div>
+                    <!-- /.panel .chat-panel -->
+                </div>
+                <!-- /.col-lg-4 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="jquery.min.js.indir"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bootstrap.min.js.indir"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="metisMenu.min.js.indir"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="raphael.min.js.indir"></script>
+    <script src="morris.min.js.indir"></script>
+    <script src="morris-data.js.indir"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="sb-admin-2.js.indir"></script>
+
+
+
+
+</body></html>

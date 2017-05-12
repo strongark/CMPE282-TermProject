@@ -16,9 +16,8 @@ window.onload= function() {
 
 // Switch the viz to the sheet specified
 function switchView(sheetName) {
-	var workbook =viz.getWorkbook();
+	var workbook =viz.getWorkbook('RockerGroup');
 	workbook.activateSheetAsync(sheetName);
-
 }
 
 // Filter the specified dimension to the specified value(s)
