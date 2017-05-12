@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Tableau JavaScript In Action Video</title>
+	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<link href="bootstrap.css" rel="stylesheet" media="screen">
+	<script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.js"></script>
+	<script type="text/javascript" src="jsapi_embed.js"></script>
+    <!-- Access the API & Load your JavaScript -->
+
+</head>
+<body>
+	<div class='container'>
+		<div class='row'>
+				<!-- <div class='span3'><img src='logo.png' ></div> -->
+			<h2 class='span7 pagination-centered'>cloud HRM</h2>
+		</div>
+		<div class='row'>
+
+			<ul id = 'menu' class='nav nav-list span2'>
+
+                 <!--These buttons will interact with our viz.-->
+                 <!-- But the functions, switchView, show, and selectMarks-->
+                 <!-- are custom functions that don't do anything until we write the functions in jsapi_in_action.js-->
+				<li class='nav-header'>Switching Views</li>
+				<li><a onClick="switchView('Sheet 1')">Dashboard</a></li>
+				<li><a onClick="switchView('Sales by Product')">Sales by Product</a></li>
+				<li><a onClick="switchView('Sales by  Month')">Sales by Month</a></li>
+				<li><a onClick="switchView('Sales by Region')">Sales by Region</a></li>
+				<li><a onClick="switchView('Sales by SalesReps')">Sales by SalesReps</a></li>
+
+				<!-- <li class='nav-header'>Filtering & Selecting Marks</li>
+				<li><a onClick="show('Productname','Product_2')">Show Product_2</a></li>
+				<li><a onClick="show('Firstname','Harry')">Show Harry</a></li>
+				<li><a onClick="selectMarks('Productname','Product_2')">Select Product_2 Marks</a></li> -->
+			</ul>
+
+            <!-- Create an empty div to put the viz -->
+            <div id='myViz'></div>
+		</div>
+	</div>
+</body>
+</html>
